@@ -29,22 +29,31 @@
             color: #4F46E5;
         }
 
-        /* Hero Section */
-        h1 {
+        /* Hero */
+        .hero {
             margin-top: 100px;
+        }
+
+        h1 {
             font-size: 50px;
             color: #222;
         }
 
+        .subtitle {
+            font-size: 22px;
+            color: #4F46E5;
+            margin-top: -10px;
+        }
+
         p {
-            font-size: 20px;
+            font-size: 18px;
             color: #555;
         }
 
         /* Button */
         .btn {
             display: inline-block;
-            margin-top: 30px;
+            margin-top: 25px;
             padding: 12px 25px;
             background-color: #4F46E5;
             color: white;
@@ -59,18 +68,37 @@
             transform: scale(1.05);
         }
 
-        /* About Section */
+        /* About */
         .about {
             margin-top: 120px;
             padding: 50px;
-            background-color: white;
+            background: white;
         }
 
         .about h2 {
             font-size: 32px;
         }
 
-        /* Projects Section */
+        .about p {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        /* Skills */
+        .skills {
+            margin-top: 100px;
+        }
+
+        .skill-box {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        /* Projects */
         .projects {
             margin-top: 100px;
         }
@@ -111,35 +139,46 @@
     </div>
 
     <!-- Hero -->
-    <h1>Hi, I'm Siya 👋</h1>
-    <p>A Beginner Web Designer</p>
-    <p>I create simple and clean websites.</p>
+    <div class="hero">
+        <h1>Hi, I'm Siya 👋</h1>
+        <p class="subtitle">Aspiring Web Designer</p>
+        <p>I create simple, clean and modern websites.</p>
 
-    <a href="#" class="btn">Contact Me</a>
+        <a href="mailto:your@email.com" class="btn">Contact Me</a>
+    </div>
 
     <!-- About -->
     <div class="about">
         <h2>About Me</h2>
         <p>
-            I am learning web design and love creating modern, clean, and user-friendly websites.
-            This is my upgraded portfolio project.
+            I am a beginner web designer learning HTML, CSS, and UI design.
+            I enjoy creating clean and user-friendly websites.
         </p>
+    </div>
+
+    <!-- Skills -->
+    <div class="skills">
+        <h2>Skills</h2>
+
+        <div class="skill-box">HTML</div>
+        <div class="skill-box">CSS</div>
+        <div class="skill-box">Figma</div>
+        <div class="skill-box">GitHub</div>
     </div>
 
     <!-- Projects -->
     <div class="projects">
-        <h2>My Projects</h2>
+        <h2>Projects</h2>
 
         <div class="project-card">
             <h3>Portfolio Website</h3>
-            <p>My first personal website built with HTML & CSS.</p>
+            <p>My personal portfolio built using HTML & CSS.</p>
         </div>
 
         <div class="project-card">
             <h3>Landing Page</h3>
-            <p>A simple modern landing page design.</p>
+            <p>A modern landing page design concept.</p>
         </div>
-
     </div>
 
     <!-- Footer -->
