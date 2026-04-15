@@ -21,13 +21,25 @@ body {
     background: #f5f7fb;
     color: #333;
     transition: 0.3s;
+    cursor: none;
+}
+
+/* CURSOR */
+.cursor {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #4F46E5;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 999;
 }
 
 /* NAVBAR */
 .navbar {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     padding: 15px 30px;
     background: white;
     position: sticky;
@@ -38,10 +50,6 @@ body {
     margin: 0 10px;
     text-decoration: none;
     color: #555;
-}
-
-.nav-links a:hover {
-    color: #4F46E5;
 }
 
 .dark-btn {
@@ -60,7 +68,6 @@ body {
 .hero img {
     width: 150px;
     border-radius: 50%;
-    margin-bottom: 20px;
 }
 
 /* BUTTON */
@@ -76,17 +83,15 @@ body {
 }
 
 .btn:hover {
-    background: #3730A3;
     transform: scale(1.1);
 }
 
-/* ABOUT */
-.about {
+/* SECTIONS */
+.about, .contact {
     padding: 80px 20px;
     text-align: center;
 }
 
-/* PROJECTS */
 .projects {
     padding: 80px 20px;
     background: white;
@@ -107,23 +112,12 @@ body {
     transform: translateY(-10px) scale(1.05);
 }
 
-/* CONTACT */
-.contact {
-    padding: 80px 20px;
-    text-align: center;
-}
-
+/* FORM */
 .contact input, .contact textarea {
     width: 250px;
     padding: 10px;
     border-radius: 6px;
     border: 1px solid #ccc;
-}
-
-/* FOOTER */
-footer {
-    text-align: center;
-    padding: 20px;
 }
 
 /* DARK MODE */
@@ -144,11 +138,7 @@ footer {
     background: #222;
 }
 
-.dark-mode a {
-    color: #ddd;
-}
-
-/* ANIMATIONS */
+/* ANIMATION */
 .fade-in {
     opacity: 0;
     transform: translateY(30px);
@@ -173,14 +163,15 @@ footer {
 }
 
 @keyframes blink {
-    0% {opacity: 1;}
-    50% {opacity: 0;}
-    100% {opacity: 1;}
+    50% { opacity: 0; }
 }
 </style>
 </head>
 
 <body>
+
+<!-- CURSOR -->
+<div class="cursor"></div>
 
 <!-- NAVBAR -->
 <div class="navbar">
@@ -198,7 +189,7 @@ footer {
 
 <!-- HERO -->
 <section class="hero fade-in">
-    <img src="profile.jpg" alt="My Photo">
+    <img src="profile.jpg" alt="">
     <h1>Hi, I'm Siya 👋</h1>
     <p id="typing"></p>
 </section>
@@ -213,20 +204,9 @@ footer {
 <section class="projects fade-in delay-2" id="projects">
     <h2>My Projects</h2>
 
-    <div class="project-box">
-        <h3>Portfolio Website</h3>
-        <p>HTML & CSS</p>
-    </div>
-
-    <div class="project-box">
-        <h3>Landing Page</h3>
-        <p>Modern UI Design</p>
-    </div>
-
-    <div class="project-box">
-        <h3>Figma Design</h3>
-        <p>UI/UX Practice</p>
-    </div>
+    <div class="project-box">Portfolio Website</div>
+    <div class="project-box">Landing Page</div>
+    <div class="project-box">Figma Design</div>
 </section>
 
 <!-- CONTACT -->
@@ -240,26 +220,20 @@ footer {
         <input type="email" name="email" placeholder="Your Email" required><br><br>
         <textarea name="message" placeholder="Your Message" required></textarea><br><br>
 
-        <button type="submit" class="btn">Send Message</button>
+        <button class="btn">Send</button>
     </form>
 </section>
 
-<!-- FOOTER -->
-<footer>
-    © 2026 Siya
-</footer>
+<footer style="text-align:center; padding:20px;">© 2026 Siya</footer>
 
-<!-- SCRIPTS -->
 <script>
+/* DARK MODE */
 function toggleDark() {
     document.body.classList.toggle("dark-mode");
-
-    let btn = document.querySelector(".dark-btn");
-    btn.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
 }
 
-/* TYPING EFFECT */
-const text = "Aspiring Web Designer | Creative Learner | Future Developer 🚀";
+/* TYPING */
+const text = "Aspiring Web Designer | Creative Learner 🚀";
 let i = 0;
 
 function typeEffect() {
@@ -269,8 +243,25 @@ function typeEffect() {
         setTimeout(typeEffect, 50);
     }
 }
-
 window.onload = typeEffect;
+
+/* CURSOR */
+const cursor = document.querySelector(".cursor");
+
+document.addEventListener("mousemove", (e) => {
+    cursor.style.top = e.clientY + "px";
+    cursor.style.left = e.clientX + "px";
+});
+
+/* HOVER EFFECT */
+document.querySelectorAll("a, button").forEach(el => {
+    el.addEventListener("mouseenter", () => {
+        cursor.style.transform = "translate(-50%, -50%) scale(1.8)";
+    });
+    el.addEventListener("mouseleave", () => {
+        cursor.style.transform = "translate(-50%, -50%) scale(1)";
+    });
+});
 </script>
 
 </body>
