@@ -2,66 +2,126 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Siya's Portfolio</title>
 
     <style>
-        body {
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
             font-family: Arial, sans-serif;
-            background-color: #f5f7fb;
-            text-align: center;
+            background: #f5f7fb;
+            color: #333;
         }
 
         /* NAVBAR */
         .navbar {
-            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 50px;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
-        .navbar a {
-            margin: 0 15px;
+        .logo {
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .nav-links a {
+            margin-left: 20px;
             text-decoration: none;
             color: #555;
-            font-weight: bold;
+            font-weight: 500;
         }
 
-        /* IMAGE */
-        .profile {
-            margin-top: 40px;
+        .nav-links a:hover {
+            color: #4F46E5;
         }
 
-        .profile img {
-            width: 150px;
-            height: 150px;
+        /* HERO SECTION */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero img {
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
-            object-fit: cover;
+            margin-bottom: 20px;
         }
 
-        /* TEXT */
-        h1 {
-            margin-top: 30px;
-            font-size: 42px;
-            color: #222;
+        .hero h1 {
+            font-size: 40px;
+            margin-bottom: 10px;
         }
 
-        p {
+        .hero p {
             font-size: 20px;
-            color: #555;
+            color: #666;
         }
 
-        /* BUTTON */
         .btn {
             display: inline-block;
             margin-top: 20px;
-            padding: 12px 25px;
-            background-color: #4F46E5;
+            padding: 14px 30px;
+            background: #4F46E5;
             color: white;
             border-radius: 8px;
             text-decoration: none;
-            font-size: 18px;
+            transition: 0.3s;
         }
 
         .btn:hover {
-            background-color: #3730A3;
+            background: #3730A3;
+        }
+
+        /* ABOUT */
+        .about {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .about h2 {
+            margin-bottom: 10px;
+        }
+
+        .about p {
+            max-width: 500px;
+            margin: auto;
+            color: #555;
+        }
+
+        /* PROJECTS */
+        .projects {
+            padding: 60px 20px;
+            background: #fff;
+            text-align: center;
+        }
+
+        .projects h2 {
+            margin-bottom: 30px;
+        }
+
+        .project-box {
+            display: inline-block;
+            width: 250px;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 10px;
+            background: #f1f3f9;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #777;
         }
     </style>
 </head>
@@ -70,22 +130,51 @@
 
     <!-- NAVBAR -->
     <div class="navbar">
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
+        <div class="logo">Siya</div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+        </div>
     </div>
 
-    <!-- PROFILE IMAGE -->
-    <div class="profile">
+    <!-- HERO -->
+    <section class="hero">
         <img src="profile.jpg" alt="My Photo">
-    </div>
+        <h1>Hi, I'm Siya 👋</h1>
+        <p>I am a beginner web designer</p>
+        <a href="#" class="btn">Contact Me</a>
+    </section>
 
-    <!-- TEXT -->
-    <h1>Siya's Portfolio</h1>
-    <p>I am a beginner web designer</p>
+    <!-- ABOUT -->
+    <section class="about" id="about">
+        <h2>About Me</h2>
+        <p>
+            I am learning web design and development. I enjoy creating simple and clean websites.
+            This is my first portfolio website built using HTML and CSS.
+        </p>
+    </section>
 
-    <!-- BUTTON -->
-    <a href="#" class="btn">Contact Me</a>
+    <!-- PROJECTS -->
+    <section class="projects" id="projects">
+        <h2>My Projects</h2>
+
+        <div class="project-box">
+            <h3>Portfolio Website</h3>
+            <p>My first website made using HTML & CSS</p>
+        </div>
+
+        <div class="project-box">
+            <h3>Coming Soon</h3>
+            <p>More projects will be added soon</p>
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2026 Siya | All Rights Reserved
+    </footer>
 
 </body>
 </html>
