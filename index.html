@@ -12,98 +12,98 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #4F46E5, #9333EA);
-    color: #fff;
-    cursor: none;
-}
-
-/* GLASS EFFECT */
-.glass {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(12px);
-    border-radius: 15px;
-    padding: 20px;
-}
-
-/* CURSOR */
-.cursor {
-    width: 20px;
-    height: 20px;
-    border: 2px solid white;
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #ffffff;
+    color: #111;
 }
 
 /* NAVBAR */
 .navbar {
     display: flex;
     justify-content: space-between;
-    padding: 15px 30px;
-    margin: 10px;
+    padding: 20px 50px;
+    position: sticky;
+    top: 0;
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(10px);
 }
 
 .nav-links a {
-    margin: 0 10px;
+    margin-left: 20px;
     text-decoration: none;
-    color: white;
-}
-
-.dark-btn {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 20px;
+    color: #333;
 }
 
 /* HERO */
 .hero {
     text-align: center;
-    padding: 100px 20px;
+    padding: 120px 20px;
+}
+
+.hero h1 {
+    font-size: 56px;
+    font-weight: 600;
+}
+
+.hero p {
+    font-size: 22px;
+    color: #666;
+    margin-top: 10px;
 }
 
 .hero img {
-    width: 150px;
+    width: 140px;
     border-radius: 50%;
+    margin-bottom: 20px;
 }
 
 /* BUTTON */
 .btn {
     display: inline-block;
-    margin-top: 20px;
-    padding: 12px 30px;
-    background: rgba(255,255,255,0.2);
+    margin-top: 25px;
+    padding: 12px 28px;
+    background: #0071E3;
     color: white;
-    border-radius: 10px;
+    border-radius: 20px;
     text-decoration: none;
+    font-size: 16px;
+}
+
+/* SECTIONS */
+section {
+    padding: 100px 20px;
+    text-align: center;
 }
 
 /* PROJECTS */
-.projects, .about, .contact {
-    margin: 20px;
+.projects {
+    background: #f5f5f7;
 }
 
 .project-box {
-    margin: 10px;
-    padding: 20px;
+    background: white;
+    padding: 30px;
+    margin: 15px;
+    border-radius: 20px;
+    display: inline-block;
+    width: 260px;
+    transition: 0.3s;
 }
 
-/* FORM */
-.contact input, .contact textarea {
-    width: 250px;
-    padding: 10px;
-    border-radius: 6px;
-    border: none;
+.project-box:hover {
+    transform: translateY(-10px);
 }
 
-/* TYPING */
+/* CONTACT */
+input, textarea {
+    width: 260px;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+/* TYPING CURSOR */
 #typing::after {
     content: "|";
     animation: blink 1s infinite;
@@ -112,49 +112,67 @@ body {
 @keyframes blink {
     50% {opacity: 0;}
 }
+
+/* SMOOTH ANIMATION */
+.fade {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 </style>
 </head>
 
 <body>
 
-<div class="cursor"></div>
-
 <!-- NAVBAR -->
-<div class="navbar glass">
+<div class="navbar">
     <div><b>Siya</b></div>
-
     <div class="nav-links">
         <a href="#">Home</a>
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
     </div>
-
-    <button onclick="toggleDark()" class="dark-btn">🌙</button>
 </div>
 
 <!-- HERO -->
-<section class="hero glass">
+<section class="hero fade">
     <img src="profile.jpg">
-    <h1>Hi, I'm Siya 👋</h1>
+    <h1>Hi, I'm Siya</h1>
     <p id="typing"></p>
+    <a href="#contact" class="btn">Contact Me</a>
 </section>
 
 <!-- ABOUT -->
-<section class="about glass" id="about">
+<section id="about" class="fade">
     <h2>About Me</h2>
-    <p>I create modern and stylish websites.</p>
+    <p>I design clean, minimal and modern websites inspired by Apple-style UI.</p>
 </section>
 
 <!-- PROJECTS -->
-<section class="projects glass" id="projects">
+<section id="projects" class="projects fade">
     <h2>My Projects</h2>
-    <div class="project-box glass">Portfolio Website</div>
-    <div class="project-box glass">Landing Page</div>
+
+    <div class="project-box">
+        <h3>Portfolio Website</h3>
+        <p>Minimal clean UI</p>
+    </div>
+
+    <div class="project-box">
+        <h3>Landing Page</h3>
+        <p>Modern design concept</p>
+    </div>
 </section>
 
 <!-- CONTACT -->
-<section class="contact glass" id="contact">
+<section id="contact" class="fade">
     <h2>Contact Me</h2>
 
     <form action="https://api.web3forms.com/submit" method="POST">
@@ -164,14 +182,16 @@ body {
         <input type="email" name="email" placeholder="Your Email" required><br><br>
         <textarea name="message" placeholder="Your Message" required></textarea><br><br>
 
-        <button class="btn">Send</button>
+        <button class="btn">Send Message</button>
     </form>
 </section>
 
-<footer style="text-align:center; padding:20px;">© 2026 Siya</footer>
+<footer style="text-align:center; padding:30px; color:#888;">
+    © 2026 Siya
+</footer>
 
 <script>
-/* TYPING */
+/* TYPING EFFECT */
 const text = "Creative Designer | Web Developer 🚀";
 let i = 0;
 
@@ -183,14 +203,6 @@ function typeEffect() {
     }
 }
 window.onload = typeEffect;
-
-/* CURSOR */
-const cursor = document.querySelector(".cursor");
-
-document.addEventListener("mousemove", e => {
-    cursor.style.top = e.clientY + "px";
-    cursor.style.left = e.clientX + "px";
-});
 </script>
 
 </body>
