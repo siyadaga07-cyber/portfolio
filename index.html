@@ -32,11 +32,6 @@ body {
     background: white;
     position: sticky;
     top: 0;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-}
-
-.logo {
-    font-weight: bold;
 }
 
 .nav-links a {
@@ -49,7 +44,6 @@ body {
     color: #4F46E5;
 }
 
-/* DARK BUTTON */
 .dark-btn {
     background: none;
     border: none;
@@ -61,26 +55,14 @@ body {
 .hero {
     text-align: center;
     padding: 100px 20px;
-    animation: fadeIn 1s ease-in;
 }
 
 .hero img {
-    width: 160px;
-    height: 160px;
+    width: 150px;
     border-radius: 50%;
     margin-bottom: 20px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-.hero h1 {
-    font-size: 40px;
-}
-
-.hero p {
-    color: #666;
-}
-
-/* BUTTON */
 .btn {
     display: inline-block;
     margin-top: 20px;
@@ -89,12 +71,10 @@ body {
     color: white;
     border-radius: 8px;
     text-decoration: none;
-    transition: 0.3s;
 }
 
 .btn:hover {
     background: #3730A3;
-    transform: scale(1.05);
 }
 
 /* ABOUT */
@@ -112,23 +92,30 @@ body {
 
 .project-box {
     display: inline-block;
-    width: 260px;
+    width: 250px;
     margin: 15px;
     padding: 20px;
     border-radius: 10px;
     background: #f1f3f9;
-    transition: 0.3s;
 }
 
-.project-box:hover {
-    transform: translateY(-8px);
+/* CONTACT */
+.contact {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.contact input, .contact textarea {
+    width: 250px;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
 }
 
 /* FOOTER */
 footer {
     text-align: center;
     padding: 20px;
-    color: #777;
 }
 
 /* DARK MODE */
@@ -152,19 +139,6 @@ footer {
 .dark-mode a {
     color: #ddd;
 }
-
-/* ANIMATION */
-@keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
-}
-
-/* MOBILE */
-@media (max-width: 600px) {
-    .navbar {
-        flex-direction: column;
-    }
-}
 </style>
 </head>
 
@@ -172,12 +146,13 @@ footer {
 
 <!-- NAVBAR -->
 <div class="navbar">
-    <div class="logo">Siya</div>
+    <div><b>Siya</b></div>
 
     <div class="nav-links">
         <a href="#">Home</a>
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
     </div>
 
     <button onclick="toggleDark()" class="dark-btn">🌙</button>
@@ -187,14 +162,13 @@ footer {
 <section class="hero">
     <img src="profile.jpg" alt="My Photo">
     <h1>Hi, I'm Siya 👋</h1>
-    <p>Aspiring Web Designer & Creative Learner</p>
-    <a href="mailto:siyadaga07@email.com" class="btn">Contact Me</a>
+    <p>I am a beginner web designer</p>
 </section>
 
 <!-- ABOUT -->
 <section class="about" id="about">
     <h2>About Me</h2>
-    <p>I love creating clean and modern websites using HTML & CSS.</p>
+    <p>I love creating modern and clean websites.</p>
 </section>
 
 <!-- PROJECTS -->
@@ -203,18 +177,38 @@ footer {
 
     <div class="project-box">
         <h3>Portfolio Website</h3>
-        <p>Built using HTML & CSS</p>
+        <p>HTML & CSS</p>
     </div>
 
     <div class="project-box">
         <h3>Landing Page</h3>
-        <p>Modern UI design</p>
+        <p>Modern UI Design</p>
     </div>
 
     <div class="project-box">
         <h3>Figma Design</h3>
-        <p>UI design using Figma</p>
+        <p>UI/UX Practice</p>
     </div>
+</section>
+
+<!-- CONTACT FORM -->
+<section class="contact" id="contact">
+    <h2>Contact Me</h2>
+
+    <form action="https://api.web3forms.com/submit" method="POST">
+
+        <!-- YOUR KEY -->
+        <input type="hidden" name="access_key" value="01b24ed1-0a05-4ebf-a562-6cb4048676fd">
+
+        <input type="text" name="name" placeholder="Your Name" required><br><br>
+
+        <input type="email" name="email" placeholder="Your Email" required><br><br>
+
+        <textarea name="message" placeholder="Your Message" required></textarea><br><br>
+
+        <button type="submit" class="btn">Send Message</button>
+
+    </form>
 </section>
 
 <!-- FOOTER -->
@@ -222,7 +216,7 @@ footer {
     © 2026 Siya
 </footer>
 
-<!-- JAVASCRIPT -->
+<!-- DARK MODE SCRIPT -->
 <script>
 function toggleDark() {
     document.body.classList.toggle("dark-mode");
