@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Siya's Portfolio</title>
+<title>Siya | Portfolio</title>
 
 <style>
 * {
@@ -14,7 +14,7 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    background: #ffffff;
+    background: #fff;
     color: #111;
 }
 
@@ -25,7 +25,7 @@ body {
     padding: 20px 50px;
     position: sticky;
     top: 0;
-    background: rgba(255,255,255,0.8);
+    background: rgba(255,255,255,0.9);
     backdrop-filter: blur(10px);
 }
 
@@ -42,38 +42,37 @@ body {
 }
 
 .hero h1 {
-    font-size: 56px;
-    font-weight: 600;
+    font-size: 52px;
 }
 
 .hero p {
-    font-size: 22px;
+    font-size: 20px;
     color: #666;
-    margin-top: 10px;
 }
 
-.hero img {
-    width: 140px;
-    border-radius: 50%;
-    margin-bottom: 20px;
-}
-
-/* BUTTON */
 .btn {
     display: inline-block;
-    margin-top: 25px;
+    margin-top: 20px;
     padding: 12px 28px;
     background: #0071E3;
     color: white;
     border-radius: 20px;
     text-decoration: none;
-    font-size: 16px;
 }
 
 /* SECTIONS */
 section {
-    padding: 100px 20px;
+    padding: 80px 20px;
     text-align: center;
+}
+
+/* SKILLS */
+.skills span {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    background: #f2f2f2;
+    border-radius: 20px;
 }
 
 /* PROJECTS */
@@ -83,48 +82,19 @@ section {
 
 .project-box {
     background: white;
-    padding: 30px;
+    padding: 25px;
     margin: 15px;
-    border-radius: 20px;
+    border-radius: 15px;
     display: inline-block;
     width: 260px;
-    transition: 0.3s;
-}
-
-.project-box:hover {
-    transform: translateY(-10px);
 }
 
 /* CONTACT */
 input, textarea {
     width: 260px;
-    padding: 12px;
+    padding: 10px;
     border-radius: 10px;
     border: 1px solid #ddd;
-}
-
-/* TYPING CURSOR */
-#typing::after {
-    content: "|";
-    animation: blink 1s infinite;
-}
-
-@keyframes blink {
-    50% {opacity: 0;}
-}
-
-/* SMOOTH ANIMATION */
-.fade {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeIn 1s ease forwards;
-}
-
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 </style>
 </head>
@@ -137,42 +107,56 @@ input, textarea {
     <div class="nav-links">
         <a href="#">Home</a>
         <a href="#about">About</a>
+        <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
     </div>
 </div>
 
 <!-- HERO -->
-<section class="hero fade">
-    <img src="profile.jpg">
+<section class="hero">
     <h1>Hi, I'm Siya</h1>
-    <p id="typing"></p>
-    <a href="#contact" class="btn">Contact Me</a>
+    <p>Aspiring Web Designer & Developer</p>
+
+    <!-- RESUME BUTTON -->
+    <a href="resume.pdf" class="btn" download>Download Resume</a>
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="fade">
+<section id="about">
     <h2>About Me</h2>
-    <p>I design clean, minimal and modern websites inspired by Apple-style UI.</p>
+    <p>
+        I am a passionate student learning web development and design.  
+        I enjoy creating modern, clean and user-friendly websites.
+    </p>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="skills">
+    <h2>My Skills</h2>
+    <span>HTML</span>
+    <span>CSS</span>
+    <span>JavaScript</span>
+    <span>UI Design</span>
 </section>
 
 <!-- PROJECTS -->
-<section id="projects" class="projects fade">
+<section id="projects" class="projects">
     <h2>My Projects</h2>
 
     <div class="project-box">
         <h3>Portfolio Website</h3>
-        <p>Minimal clean UI</p>
+        <p>Personal portfolio using HTML & CSS</p>
     </div>
 
     <div class="project-box">
         <h3>Landing Page</h3>
-        <p>Modern design concept</p>
+        <p>Modern responsive design</p>
     </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="fade">
+<section id="contact">
     <h2>Contact Me</h2>
 
     <form action="https://api.web3forms.com/submit" method="POST">
@@ -189,21 +173,6 @@ input, textarea {
 <footer style="text-align:center; padding:30px; color:#888;">
     © 2026 Siya
 </footer>
-
-<script>
-/* TYPING EFFECT */
-const text = "Creative Designer | Web Developer 🚀";
-let i = 0;
-
-function typeEffect() {
-    if (i < text.length) {
-        document.getElementById("typing").innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typeEffect, 50);
-    }
-}
-window.onload = typeEffect;
-</script>
 
 </body>
 </html>
