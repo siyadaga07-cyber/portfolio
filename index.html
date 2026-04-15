@@ -1,180 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siya's Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Siya's Portfolio</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #f5f7fb;
-            color: #333;
-        }
+html {
+    scroll-behavior: smooth;
+}
 
-        /* NAVBAR */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            padding: 20px 50px;
-            background: white;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f7fb;
+    color: #333;
+}
 
-        .logo {
-            font-weight: bold;
-            font-size: 20px;
-        }
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background: white;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
 
-        .nav-links a {
-            margin-left: 20px;
-            text-decoration: none;
-            color: #555;
-            font-weight: 500;
-        }
+.logo {
+    font-weight: bold;
+    font-size: 20px;
+}
 
-        .nav-links a:hover {
-            color: #4F46E5;
-        }
+.nav-links a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #555;
+}
 
-        /* HERO SECTION */
-        .hero {
-            text-align: center;
-            padding: 80px 20px;
-        }
+.nav-links a:hover {
+    color: #4F46E5;
+}
 
-        .hero img {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            margin-bottom: 20px;
-        }
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    animation: fadeIn 1s ease-in;
+}
 
-        .hero h1 {
-            font-size: 40px;
-            margin-bottom: 10px;
-        }
+.hero img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
 
-        .hero p {
-            font-size: 20px;
-            color: #666;
-        }
+.hero h1 {
+    font-size: 42px;
+}
 
-        .btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 14px 30px;
-            background: #4F46E5;
-            color: white;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: 0.3s;
-        }
+.hero p {
+    color: #666;
+    font-size: 18px;
+}
 
-        .btn:hover {
-            background: #3730A3;
-        }
+/* BUTTON */
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 14px 30px;
+    background: #4F46E5;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.3s;
+}
 
-        /* ABOUT */
-        .about {
-            padding: 60px 20px;
-            text-align: center;
-        }
+.btn:hover {
+    background: #3730A3;
+    transform: scale(1.05);
+}
 
-        .about h2 {
-            margin-bottom: 10px;
-        }
+/* ABOUT */
+.about {
+    padding: 80px 20px;
+    text-align: center;
+}
 
-        .about p {
-            max-width: 500px;
-            margin: auto;
-            color: #555;
-        }
+.about p {
+    max-width: 500px;
+    margin: auto;
+    color: #555;
+}
 
-        /* PROJECTS */
-        .projects {
-            padding: 60px 20px;
-            background: #fff;
-            text-align: center;
-        }
+/* PROJECTS */
+.projects {
+    padding: 80px 20px;
+    background: white;
+    text-align: center;
+}
 
-        .projects h2 {
-            margin-bottom: 30px;
-        }
+.project-box {
+    display: inline-block;
+    width: 260px;
+    margin: 15px;
+    padding: 20px;
+    border-radius: 10px;
+    background: #f1f3f9;
+    transition: 0.3s;
+}
 
-        .project-box {
-            display: inline-block;
-            width: 250px;
-            margin: 10px;
-            padding: 20px;
-            border-radius: 10px;
-            background: #f1f3f9;
-        }
+.project-box:hover {
+    transform: translateY(-8px);
+}
 
-        /* FOOTER */
-        footer {
-            text-align: center;
-            padding: 20px;
-            color: #777;
-        }
-    </style>
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #777;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-links {
+        margin-top: 10px;
+    }
+
+    .project-box {
+        width: 90%;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <!-- NAVBAR -->
-    <div class="navbar">
-        <div class="logo">Siya</div>
-        <div class="nav-links">
-            <a href="#">Home</a>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-        </div>
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="logo">Siya</div>
+    <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+    </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+    <img src="profile.jpg" alt="My Photo">
+    <h1>Hi, I'm Siya 👋</h1>
+    <p>Aspiring Web Designer & Creative Learner</p>
+    <a href="mailto:your@email.com" class="btn">Contact Me</a>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+    <h2>About Me</h2>
+    <p>
+        I am learning web design and development. I love creating clean,
+        modern and user-friendly websites.
+    </p>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects" id="projects">
+    <h2>My Projects</h2>
+
+    <div class="project-box">
+        <h3>Portfolio Website</h3>
+        <p>Built using HTML & CSS and deployed online.</p>
     </div>
 
-    <!-- HERO -->
-    <section class="hero">
-        <img src="profile.jpg" alt="My Photo">
-        <h1>Hi, I'm Siya 👋</h1>
-        <p>I am a beginner web designer</p>
-        <a href="#" class="btn">Contact Me</a>
-    </section>
+    <div class="project-box">
+        <h3>Landing Page</h3>
+        <p>Modern UI design concept.</p>
+    </div>
 
-    <!-- ABOUT -->
-    <section class="about" id="about">
-        <h2>About Me</h2>
-        <p>
-            I am learning web design and development. I enjoy creating simple and clean websites.
-            This is my first portfolio website built using HTML and CSS.
-        </p>
-    </section>
+    <div class="project-box">
+        <h3>Figma Design</h3>
+        <p>Designed UI using Figma.</p>
+    </div>
+</section>
 
-    <!-- PROJECTS -->
-    <section class="projects" id="projects">
-        <h2>My Projects</h2>
-
-        <div class="project-box">
-            <h3>Portfolio Website</h3>
-            <p>My first website made using HTML & CSS</p>
-        </div>
-
-        <div class="project-box">
-            <h3>Coming Soon</h3>
-            <p>More projects will be added soon</p>
-        </div>
-
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        © 2026 Siya | All Rights Reserved
-    </footer>
+<!-- FOOTER -->
+<footer>
+    © 2026 Siya | Made with ❤️
+</footer>
 
 </body>
 </html>
