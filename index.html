@@ -18,22 +18,28 @@ html {
 
 body {
     font-family: Arial, sans-serif;
-    background: #f5f7fb;
-    color: #333;
-    transition: 0.3s;
+    background: linear-gradient(135deg, #4F46E5, #9333EA);
+    color: #fff;
     cursor: none;
+}
+
+/* GLASS EFFECT */
+.glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border-radius: 15px;
+    padding: 20px;
 }
 
 /* CURSOR */
 .cursor {
     width: 20px;
     height: 20px;
-    border: 2px solid #4F46E5;
+    border: 2px solid white;
     border-radius: 50%;
     position: fixed;
     pointer-events: none;
     transform: translate(-50%, -50%);
-    z-index: 999;
 }
 
 /* NAVBAR */
@@ -41,22 +47,20 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 15px 30px;
-    background: white;
-    position: sticky;
-    top: 0;
+    margin: 10px;
 }
 
 .nav-links a {
     margin: 0 10px;
     text-decoration: none;
-    color: #555;
+    color: white;
 }
 
 .dark-btn {
     background: none;
     border: none;
+    color: white;
     font-size: 20px;
-    cursor: pointer;
 }
 
 /* HERO */
@@ -75,41 +79,20 @@ body {
     display: inline-block;
     margin-top: 20px;
     padding: 12px 30px;
-    background: #4F46E5;
+    background: rgba(255,255,255,0.2);
     color: white;
-    border-radius: 8px;
+    border-radius: 10px;
     text-decoration: none;
-    transition: 0.3s;
 }
 
-.btn:hover {
-    transform: scale(1.1);
-}
-
-/* SECTIONS */
-.about, .contact {
-    padding: 80px 20px;
-    text-align: center;
-}
-
-.projects {
-    padding: 80px 20px;
-    background: white;
-    text-align: center;
+/* PROJECTS */
+.projects, .about, .contact {
+    margin: 20px;
 }
 
 .project-box {
-    display: inline-block;
-    width: 250px;
-    margin: 15px;
+    margin: 10px;
     padding: 20px;
-    border-radius: 10px;
-    background: #f1f3f9;
-    transition: 0.3s;
-}
-
-.project-box:hover {
-    transform: translateY(-10px) scale(1.05);
 }
 
 /* FORM */
@@ -117,64 +100,27 @@ body {
     width: 250px;
     padding: 10px;
     border-radius: 6px;
-    border: 1px solid #ccc;
+    border: none;
 }
 
-/* DARK MODE */
-.dark-mode {
-    background: #111;
-    color: #eee;
-}
-
-.dark-mode .navbar {
-    background: #1a1a1a;
-}
-
-.dark-mode .projects {
-    background: #1a1a1a;
-}
-
-.dark-mode .project-box {
-    background: #222;
-}
-
-/* ANIMATION */
-.fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeUp 1s ease forwards;
-}
-
-.delay-1 { animation-delay: 0.3s; }
-.delay-2 { animation-delay: 0.6s; }
-.delay-3 { animation-delay: 0.9s; }
-
-@keyframes fadeUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* TYPING CURSOR */
+/* TYPING */
 #typing::after {
     content: "|";
     animation: blink 1s infinite;
 }
 
 @keyframes blink {
-    50% { opacity: 0; }
+    50% {opacity: 0;}
 }
 </style>
 </head>
 
 <body>
 
-<!-- CURSOR -->
 <div class="cursor"></div>
 
 <!-- NAVBAR -->
-<div class="navbar">
+<div class="navbar glass">
     <div><b>Siya</b></div>
 
     <div class="nav-links">
@@ -188,29 +134,27 @@ body {
 </div>
 
 <!-- HERO -->
-<section class="hero fade-in">
-    <img src="profile.jpg" alt="">
+<section class="hero glass">
+    <img src="profile.jpg">
     <h1>Hi, I'm Siya 👋</h1>
     <p id="typing"></p>
 </section>
 
 <!-- ABOUT -->
-<section class="about fade-in delay-1" id="about">
+<section class="about glass" id="about">
     <h2>About Me</h2>
-    <p>I love creating modern and clean websites.</p>
+    <p>I create modern and stylish websites.</p>
 </section>
 
 <!-- PROJECTS -->
-<section class="projects fade-in delay-2" id="projects">
+<section class="projects glass" id="projects">
     <h2>My Projects</h2>
-
-    <div class="project-box">Portfolio Website</div>
-    <div class="project-box">Landing Page</div>
-    <div class="project-box">Figma Design</div>
+    <div class="project-box glass">Portfolio Website</div>
+    <div class="project-box glass">Landing Page</div>
 </section>
 
 <!-- CONTACT -->
-<section class="contact fade-in delay-3" id="contact">
+<section class="contact glass" id="contact">
     <h2>Contact Me</h2>
 
     <form action="https://api.web3forms.com/submit" method="POST">
@@ -227,13 +171,8 @@ body {
 <footer style="text-align:center; padding:20px;">© 2026 Siya</footer>
 
 <script>
-/* DARK MODE */
-function toggleDark() {
-    document.body.classList.toggle("dark-mode");
-}
-
 /* TYPING */
-const text = "Aspiring Web Designer | Creative Learner 🚀";
+const text = "Creative Designer | Web Developer 🚀";
 let i = 0;
 
 function typeEffect() {
@@ -248,19 +187,9 @@ window.onload = typeEffect;
 /* CURSOR */
 const cursor = document.querySelector(".cursor");
 
-document.addEventListener("mousemove", (e) => {
+document.addEventListener("mousemove", e => {
     cursor.style.top = e.clientY + "px";
     cursor.style.left = e.clientX + "px";
-});
-
-/* HOVER EFFECT */
-document.querySelectorAll("a, button").forEach(el => {
-    el.addEventListener("mouseenter", () => {
-        cursor.style.transform = "translate(-50%, -50%) scale(1.8)";
-    });
-    el.addEventListener("mouseleave", () => {
-        cursor.style.transform = "translate(-50%, -50%) scale(1)";
-    });
 });
 </script>
 
