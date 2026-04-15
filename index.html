@@ -165,6 +165,18 @@ footer {
         transform: translateY(0);
     }
 }
+
+/* TYPING CURSOR */
+#typing::after {
+    content: "|";
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0% {opacity: 1;}
+    50% {opacity: 0;}
+    100% {opacity: 1;}
+}
 </style>
 </head>
 
@@ -188,7 +200,7 @@ footer {
 <section class="hero fade-in">
     <img src="profile.jpg" alt="My Photo">
     <h1>Hi, I'm Siya 👋</h1>
-    <p>I am a beginner web designer</p>
+    <p id="typing"></p>
 </section>
 
 <!-- ABOUT -->
@@ -237,7 +249,7 @@ footer {
     © 2026 Siya
 </footer>
 
-<!-- DARK MODE SCRIPT -->
+<!-- SCRIPTS -->
 <script>
 function toggleDark() {
     document.body.classList.toggle("dark-mode");
@@ -245,6 +257,20 @@ function toggleDark() {
     let btn = document.querySelector(".dark-btn");
     btn.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
 }
+
+/* TYPING EFFECT */
+const text = "Aspiring Web Designer | Creative Learner | Future Developer 🚀";
+let i = 0;
+
+function typeEffect() {
+    if (i < text.length) {
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeEffect, 50);
+    }
+}
+
+window.onload = typeEffect;
 </script>
 
 </body>
